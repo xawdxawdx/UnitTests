@@ -1,0 +1,45 @@
+﻿@model magazin.Models.Phone
+@{
+    ViewBag.Title = "Добавить телэфон";
+}
+<form asp-action="create" asp-controller="home">
+    <div>
+        <div class="validation" asp-validation-summary="All"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label">Название</label>
+            <input type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Company" class="control-label">Компания</label>
+            <input type="text" asp-for="Company" class="form-control" />
+            <span asp-validation-for="Company"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="control-label">Цена</label>
+            <input type="number" asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Send" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}

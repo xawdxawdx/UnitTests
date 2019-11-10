@@ -1,0 +1,37 @@
+﻿@model IEnumerable<magazin.Models.Phone>
+@{
+    ViewData["Title"] = "Список телефончиков";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>SulPuck ежже</title>
+</head>
+<body>
+    <h3>Умные телефоны</h3>
+    <table>
+        <tr>
+            <td>Модель</td>
+            <td>Компания</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+        <a asp-action="Create">Добавить телефониус</a>
+        @foreach (var phone in Model)
+        {
+    <tr>
+        <td>@phone.Name</td>
+        <td>@phone.Company</td>
+        <td>@phone.Price</td>
+        <td>
+            <a asp-action="Details" asp-controller="Home" asp-route-id="@phone.Id">Подробнее</a> |
+            <a asp-action="Edit" asp-controller="Home" asp-route-id="@phone.Id">Изменить</a> |
+            <a asp-action="Delete" asp-controller="Home" asp-route-id="@phone.Id">Удалить</a> |
+            <a asp-action="Buy" asp-controller="Home" asp-route-id="@phone.Id">Kupit</a>
+        </td>
+    </tr>
+        }
+    </table>
+</body>
+</html>
